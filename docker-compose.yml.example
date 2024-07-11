@@ -1,0 +1,44 @@
+version: '3.5'
+services:
+  nginx:
+    build:
+      context: ./
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8080:80"
+    links:
+      - fpm
+    depends_on:
+      - fpm
+    volumes:
+      - ./:/var/www/app
+    networks:
+      local_net:
+
+  mysql:
+    image: percona
+    volumes:
+      - data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+  fpm:
+    build:
+      context: ./
+      dockerfile: docker/php-fpm/Dockerfile
+    links:
+      - mysql
+    volumes:
+      - ./:/var/www/app
+    user: www-data
+    networks:
+      local_net:
+
+
+networks:
+  local_net:
+    driver: bridge
+
