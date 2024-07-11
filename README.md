@@ -28,9 +28,9 @@ cp .env.example .env
 cp docker-compose.yml.example docker-compose.local.yml
 docker-compose up -d --build
 docker-compose exec fpm compose install
-docker-compose exec fpm yii migrate
+docker-compose exec fpm php yii migrate
 # Заполнение тестовыми пользователями admin/admin demo/demo
-docker-compose exec fpm yii init/index
+docker-compose exec fpm php yii init/index
 ```
 
 РОУТЫ
