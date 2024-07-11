@@ -32,6 +32,17 @@ docker-compose exec fpm yii migrate
 docker-compose exec fpm yii init/index
 ```
 
+РОУТЫ
+------------
+- `{base_url}/author/index`
+- `{base_url}/author/create?id={id}`
+- `{base_url}/author/update?id={id}`
+- `{base_url}/author/delete?id={id}`
+- `{base_url}/book/index`
+- `{base_url}/book/create?id={id}`
+- `{base_url}/book/update?id={id}`
+- `{base_url}/book/delete?id={id}`
+- `{base_url}/subscription/subscribe?author_id={author_id}`
 
 
 
