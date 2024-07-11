@@ -38,6 +38,7 @@ docker-compose exec fpm yii init/index
 - `{base_url}/author/create?id={id}`
 - `{base_url}/author/update?id={id}`
 - `{base_url}/author/delete?id={id}`
+- `{base_url}/author/top?year={?year}`
 - `{base_url}/book/index`
 - `{base_url}/book/create?id={id}`
 - `{base_url}/book/update?id={id}`
