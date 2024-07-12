@@ -7,6 +7,7 @@ use app\models\Book;
 use app\models\Forms\SubscriptionForm;
 use app\models\Subscription;
 use app\services\AbstractService;
+use Exception;
 use Throwable;
 use yii\base\Model;
 use yii\web\HttpException;
@@ -35,9 +36,6 @@ final class SubscriptionService extends AbstractService
             throw new HttpException(409, 'You are already subscribed on this aouthor');
         }
 
-        $model->save(false);
-        $model->refresh();
-
         try {
             $model->save(false);
             $model->refresh();
@@ -62,6 +60,7 @@ final class SubscriptionService extends AbstractService
 
     /**
      * @throws NotFoundHttpException
+     * @throws Exception
      */
     public function sendSubscriptionNotification($id, Book $book): void
     {

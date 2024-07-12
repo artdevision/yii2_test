@@ -5,11 +5,12 @@ namespace app\commands;
 
 use app\models\User;
 use yii\console\Controller;
+use yii\db\Exception;
 
 final class InitAppCommand extends Controller
 {
     /**
-     * @throws \yii\db\Exception
+     * @throws Exception|\yii\base\Exception
      */
     public function actionIndex(): void
     {

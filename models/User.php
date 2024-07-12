@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace app\models;
 
 use DateTime;
+use yii\base\Exception;
 use yii\web\IdentityInterface;
 use Yii;
 
@@ -97,7 +98,7 @@ final class User extends BaseModel implements IdentityInterface
     }
 
     /**
-     * @throws \yii\base\Exception
+     * @throws Exception
      */
     public function setPassword(string $value): void
     {

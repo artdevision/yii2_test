@@ -5,6 +5,7 @@ namespace app\models;
 
 use app\behaviours\CreatedBookBehavior;
 use app\models\Traits\ValidateIsbnTrait;
+use yii\base\InvalidConfigException;
 use yii\db\ActiveQuery;
 
 /**
@@ -48,6 +49,9 @@ final class Book extends BaseModel
         ];
     }
 
+    /**
+     * @throws InvalidConfigException
+     */
     public function getAuthors(): ActiveQuery
     {
         return $this->hasMany(Author::class, ['id' => 'author_id'])

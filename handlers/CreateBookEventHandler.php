@@ -33,7 +33,6 @@ final class CreateBookEventHandler
                     ));
                 }
             } catch (Throwable $exception) {
-                throw $exception;
                 Yii::trace($exception->getTrace());
             }
         }

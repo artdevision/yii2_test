@@ -9,6 +9,7 @@ use app\models\Book;
 use app\services\AbstractService;
 use Ramsey\Uuid\Uuid;
 use Throwable;
+use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
@@ -77,6 +78,9 @@ final class BookService extends AbstractService
         throw new NotFoundHttpException('The requested model does not exist.');
     }
 
+    /**
+     * @throws InvalidConfigException
+     */
     public function getAuthorsList(): array
     {
         return ArrayHelper::map(

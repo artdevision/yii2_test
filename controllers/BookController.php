@@ -10,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;
@@ -113,6 +114,7 @@ final class BookController extends Controller
      * Creates a new Book model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|Response
+     * @throws HttpException
      */
     public function actionCreate(BookForm $form)
     {
@@ -133,6 +135,7 @@ final class BookController extends Controller
      * @param int $id
      * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws HttpException
      */
     public function actionUpdate($id, BookForm $form)
     {

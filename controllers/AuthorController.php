@@ -7,9 +7,11 @@ use app\models\Author;
 use app\models\Forms\AuthorForm;
 use app\services\Author\AuthorService;
 use DateTime;
+use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\Response;
@@ -64,6 +66,7 @@ final class AuthorController extends Controller
      * Lists all Author models.
      *
      * @return string
+     * @throws InvalidConfigException
      */
     public function actionIndex(): string
     {
@@ -89,6 +92,7 @@ final class AuthorController extends Controller
      * @param int $id
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws InvalidConfigException
      */
     public function actionView($id): string
     {
@@ -113,7 +117,7 @@ final class AuthorController extends Controller
      * Creates a new Author model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|Response
-     * @throws \yii\web\HttpException
+     * @throws HttpException
      */
     public function actionCreate(AuthorForm $form)
     {
@@ -132,7 +136,7 @@ final class AuthorController extends Controller
      * Top ten authors by Year
      * @param $year
      * @return string
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException
      */
     public function actionTop($year = null): string
     {
@@ -157,6 +161,7 @@ final class AuthorController extends Controller
      * @param int $id
      * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws HttpException
      */
     public function actionUpdate($id, AuthorForm $form)
     {
