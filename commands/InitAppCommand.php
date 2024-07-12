@@ -6,7 +6,7 @@ namespace app\commands;
 use app\models\User;
 use yii\console\Controller;
 
-class InitAppCommand extends Controller
+final class InitAppCommand extends Controller
 {
     /**
      * @throws \yii\db\Exception
