@@ -24,8 +24,8 @@ final class SubscriptionService extends AbstractService
     }
 
     /**
-     * @throws HttpException
      * @param SubscriptionForm $form
+     * @throws HttpException
      */
     public function createFromForm(Model $form): Subscription
     {

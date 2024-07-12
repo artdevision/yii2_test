@@ -6,6 +6,7 @@ namespace app\controllers;
 use app\models\Book;
 use app\models\Forms\BookForm;
 use app\services\Book\BookService;
+use yii\base\InvalidConfigException;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
@@ -114,7 +115,7 @@ final class BookController extends Controller
      * Creates a new Book model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|Response
-     * @throws HttpException
+     * @throws HttpException|InvalidConfigException
      */
     public function actionCreate(BookForm $form)
     {
@@ -135,7 +136,7 @@ final class BookController extends Controller
      * @param int $id
      * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
-     * @throws HttpException
+     * @throws HttpException|InvalidConfigException
      */
     public function actionUpdate($id, BookForm $form)
     {
